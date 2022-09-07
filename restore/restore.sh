@@ -69,7 +69,7 @@ fi
 
 echo "Restoring ${LATEST_BACKUP}"
 
-pg_restore --clean --no-owner $POSTGRES_HOST_OPTS -d $POSTGRES_DATABASE < dump.sql
+pg_restore --no-owner $POSTGRES_HOST_OPTS -d $POSTGRES_DATABASE < dump.sql
 
 echo "Restore complete"
 
