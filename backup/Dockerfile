@@ -11,6 +11,7 @@ RUN apk add --no-cache postgresql-client \
 
 ## Install AWS CLI
 RUN pip install awscli
+RUN pip install certifi --upgrade
 
 # cleanup
 RUN rm -rf /var/cache/apk/*
