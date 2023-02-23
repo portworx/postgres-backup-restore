@@ -10,7 +10,10 @@ RUN apk add --no-cache postgresql-client \
     py3-crcmod
 
 ## Install AWS CLI
+RUN pip install --upgrade pip
 RUN pip install awscli
+RUN pip install certifi --upgrade
+RUN pip install setuptools --upgrade
 
 # cleanup
 RUN rm -rf /var/cache/apk/*
