@@ -1,6 +1,9 @@
 FROM alpine:3.15
 LABEL maintainer="Praveen Perera <praveen@avencera.com>"
 
+ENV WORKDIR /backup
+WORKDIR $WORKDIR
+
 RUN apk update
 
 # install pg_dump and python
@@ -38,6 +41,7 @@ ADD backup.sh backup.sh
 
 ENV USER 88735
 RUN adduser -D $USER
+RUN chown --recursive $USER $WORKDIR
 USER $USER
 
 CMD ["sh", "run.sh"]
