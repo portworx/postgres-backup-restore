@@ -22,7 +22,12 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build & Push image
+    - name: Build image
       run: |
         cd ${{ matrix.path }}
-        make docker-build && make docker-push
+        make docker-build
+
+    - name: Push image
+      run: |
+        cd ${{ matrix.path }}
+        make docker-push
