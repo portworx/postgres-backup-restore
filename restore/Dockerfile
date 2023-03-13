@@ -1,6 +1,9 @@
 FROM alpine:3.15
 LABEL maintainer="Praveen Perera <praveen@avencera.com>"
 
+ENV WORKDIR /restore
+WORKDIR $WORKDIR
+
 ## Install AWS CLI
 # install pg_dump and python
 RUN apk add --no-cache postgresql-client \
@@ -24,5 +27,10 @@ ENV S3_PATH 'backup'
 ENV DROP_PUBLIC 'no'
 
 ADD restore.sh restore.sh
+
+ENV USER 88735
+RUN adduser -D $USER
+RUN chown --recursive $USER $WORKDIR
+USER $USER
 
 CMD ["sh", "restore.sh"]
