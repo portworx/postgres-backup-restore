@@ -36,4 +36,8 @@ ENV SCHEDULE **None**
 ADD run.sh run.sh
 ADD backup.sh backup.sh
 
+ENV USER 88735
+RUN adduser -D $USER
+USER $USER
+
 CMD ["sh", "run.sh"]
