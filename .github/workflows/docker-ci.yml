@@ -23,11 +23,9 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build image
-      run: |
-        cd ${{ matrix.path }}
-        make docker-build
+      working-directory: ${{ matrix.path }}
+      run: make docker-build
 
     - name: Push image
-      run: |
-        cd ${{ matrix.path }}
-        make docker-push
+      working-directory: ${{ matrix.path }}
+      run: make docker-push
