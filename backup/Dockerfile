@@ -40,7 +40,7 @@ ADD run.sh run.sh
 ADD backup.sh backup.sh
 
 # Run as an arbitrary non-root user for security reasons.
-ENV USER 88735
+ENV USER 65532
 RUN adduser -D $USER
 RUN chown --recursive $USER $WORKDIR
 USER $USER
