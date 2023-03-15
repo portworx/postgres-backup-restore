@@ -2,10 +2,9 @@
 # For a clean tree this is simply short commit hash of HEAD, e.g., "4be01eb".
 # Dirty tree has "-dirty" suffix added, e.g., "4be01eb-dirty".
 PRERELEASE ?= $(shell git describe --match= --always --dirty)
-TIMESTAMP ?= $(shell date +%y%m%d%H%M)
 
 # TAG for the postgres-backup-restore docker image, e.g., "backup-4be01eb-dirty".
-IMG_TAG ?= backup-$(PRERELEASE)-$(TIMESTAMP)
+IMG_TAG ?= backup-$(PRERELEASE)
 IMG_REPO ?= docker.io
 
 # Image URL to use all building/pushing image targets
